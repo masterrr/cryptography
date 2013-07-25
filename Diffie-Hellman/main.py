@@ -23,14 +23,9 @@ def gcd(a,b):
     return a
 
 def primitive_root(modulo):
-    required_set = set()
-    for num in range (1, modulo):
-        if (gcd(num, modulo) == 1):
-            required_set.add(num)
+    required_set = set(num for num in range (1, modulo) if gcd(num, modulo) == 1)
     for g in range(1, modulo):
-        actual_set = set()
-        for powers in range(1, modulo):
-            actual_set.add(pow(g, powers) % modulo)
+        actual_set = set(pow(g, powers) % modulo for powers in range (1, modulo))
         if required_set == actual_set:
             return g
 
