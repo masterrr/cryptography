@@ -48,14 +48,3 @@ bob_key = (pow(alice_public, bob_private)) % p
 
 print '\n Common secret: %d == %d' % (alice_key, bob_key)
 
-
-
-#print multiplicativeOrder(2,15)
-#print euler(7)
-# print euler(67342)
-# print getRandomPrime()
-# print 'Bob random prime:   ' + str(bob_p)
-# alice_p = getRandomPrime()
-# print 'Alice random prime: ' + str(alice_p)
-
-
