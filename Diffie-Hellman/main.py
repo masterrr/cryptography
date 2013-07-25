@@ -14,10 +14,20 @@ def get_random_prime():
         if is_prime(n):
             return n
 
+def gcd(a,b):
+    while a != b:
+        if a > b:
+            a = a - b
+        else:
+            b = b - a
+    return a
+
 def primitive_root(modulo):
     required_set = set()
-    required_set.update(range(1, modulo))
-    for g in range(0, modulo):
+    for num in range (1, modulo):
+        if (gcd(num, modulo) == 1):
+            required_set.add(num)
+    for g in range(1, modulo):
         actual_set = set()
         for powers in range(1, modulo):
             actual_set.add(pow(g, powers) % modulo)
