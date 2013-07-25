@@ -8,20 +8,20 @@ def is_prime_calc(num):
 def is_prime(num):
     return is_prime_calc(num)
 
-def getRandomPrime():
+def get_random_prime():
     while True:
         n = getrandbits(12) + 3;
         if is_prime(n):
             return n
 
-def primitiveRoot(modulo):
-    requiredSet = set()
-    requiredSet.update(range(1,modulo))
+def primitive_root(modulo):
+    required_set = set()
+    required_set.update(range(1, modulo))
     for g in range(0, modulo):
-        actualSet = set()
+        actual_set = set()
         for powers in range(1, modulo):
-            actualSet.add(pow(g, powers) % modulo)
-        if (requiredSet == actualSet):
+            actual_set.add(pow(g, powers) % modulo)
+        if required_set == actual_set:
             return g
 
 # Generating private keys
@@ -31,8 +31,8 @@ bob_private = randint(999, 999999)
 print 'Bob private key is %d' % bob_private
 
 # Generating p-g parameters
-p = getRandomPrime()
-g = primitiveRoot(p)
+p = get_random_prime()
+g = primitive_root(p)
 
 print '\n p parameter is %d, g parameter is %d \n' % (p, g)
 
